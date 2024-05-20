@@ -1,0 +1,43 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    >
+    
+   	<TextView 
+    android:id="@+id/title" 
+    android:layout_width="fill_parent" 
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="5dp"
+	android:layout_marginTop="2dp"
+    android:text="This program demonstrates the use of Sentinel LDK licensing functions and the license update process.\nCopyright (C) Thales Group. All rights reserved."/> 
+	
+	<Button
+	    android:id="@+id/demo"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:layout_alignParentLeft="true"
+	    android:layout_below="@+id/title"
+	    android:layout_marginLeft="2dp"
+	    android:layout_marginTop="30dp"
+	    android:text="License Consumption Demo" />
+	
+	<Button
+	    android:id="@+id/update"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:layout_above="@+id/tv"
+	    android:layout_marginLeft="2dp"
+	    android:layout_marginTop="30dp"
+	    android:layout_toRightOf="@+id/demo"
+	    android:text="License Update Demo" />
+
+	<TextView
+	    android:id="@+id/tv"
+	    android:layout_width="fill_parent"
+	    android:layout_height="fill_parent"
+	    android:layout_below="@+id/demo"
+	    android:layout_marginLeft="10dp"
+	    android:layout_marginTop="30dp" />
+
+</RelativeLayout> 

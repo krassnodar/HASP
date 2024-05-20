@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.HaspDemo"
+    android:versionCode="2"
+    android:versionName="2.0" >
+
+    <!-- Note that USB host mode is supported only from API Level 12 (Android 3.1) and higher.
+         The Android system will prevent the user from installing the application if the
+         system's API Level is lower than the value specified in this attribute.
+
+         More information is available at:
+         http://developer.android.com/guide/topics/manifest/uses-sdk-element.html
+    -->
+    <uses-sdk android:minSdkVersion="14" android:targetSdkVersion="29" />
+
+    <!-- Not all Android-powered devices are guaranteed to support the USB host APIs.
+         The "uses-feature" informs that your application needs it to function properly.
+         Note that Android system itself does not check for matching feature support on the
+         device before installing an application. However, other services (such as Google Play)
+         or applications may check your application's <uses-feature> declarations as part of
+         handling or interacting with your application.
+
+         More information is available at:
+         http://developer.android.com/guide/topics/manifest/uses-feature-element.html
+    -->
+    <uses-feature android:name="android.hardware.usb.host" />
+
+    <!--  Permission required to access the external storage for storing and loading files -->
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/icon"
+        android:label="LDKDemo"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name="com.HaspDemo.HaspDemo"
+            android:label="LDKDemo" 
+            android:launchMode="singleTask"
+            android:configChanges="keyboardHidden|orientation|screenSize">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+    <!-- With this intent-filter, when users connect a device that matches your device filter,
+         the system presents them with a dialog that asks if they want to start your application.
+         If users accept, your application automatically has permission to access the device
+         until the device is disconnected.
+
+         More information is available at:
+         http://developer.android.com/guide/topics/connectivity/usb/host.html
+    -->
+            <intent-filter>
+                <action android:name="android.hardware.usb.action.USB_DEVICE_ATTACHED" />
+            </intent-filter>
+            <meta-data android:name="android.hardware.usb.action.USB_DEVICE_ATTACHED" android:resource="@xml/device_filter" />
+        </activity>
+        
+        <activity  android:name="com.HaspDemo.RUSDemo" android:configChanges="orientation|keyboardHidden|screenSize"></activity>
+        <activity  android:name="com.ldk_rus.ldk_rus" android:configChanges="orientation|keyboardHidden|screenSize"></activity>
+        <activity  android:name="com.ldk_rus.ProductKey" android:configChanges="orientation|keyboardHidden|screenSize"></activity>
+        <activity  android:name="com.ldk_rus.LicenseFile" android:configChanges="orientation|keyboardHidden|screenSize"></activity>
+        <activity  android:name="com.ldk_rus.FileBrowser" android:configChanges="orientation|keyboardHidden|screenSize"></activity>
+    </application>
+
+</manifest>
